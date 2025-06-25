@@ -29,8 +29,8 @@ class Postgrator extends EventEmitter {
    * @returns {Promise} array of migration objects
    */
   async getMigrations() {
-    const { migrationPattern, newline } = this.config;
-    const migrationFiles = await glob(migrationPattern);
+    const { migrationPattern, newline, globConfig } = this.config;
+    const migrationFiles = await glob(migrationPattern, globConfig);
     let migrations = await Promise.all(
       migrationFiles
         .filter(
