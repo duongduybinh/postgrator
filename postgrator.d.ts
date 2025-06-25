@@ -1,3 +1,4 @@
+import { GlobOptions } from "glob";
 import { ConnectionOptions } from "tls";
 
 declare namespace Postgrator {
@@ -26,6 +27,7 @@ declare namespace Postgrator {
     validateChecksums?: boolean;
     migrationPattern?: string;
     newline?: string;
+    globOptions?: GlobOptions,
     execQuery?: (query: string) => Promise<{ rows: any[] }>;
     execSqlScript?: (sqlScript: string) => Promise<void>;
   }
